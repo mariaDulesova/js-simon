@@ -15,23 +15,23 @@ for ( var i = 0; i < 5; i++) {
     randomNumber.push(getRandomNumber);
 }
 
-console.log(getRandomNumber);
 console.log(randomNumber);
-
 var numbersToMemorize = alert("Please remember the following numbers: " + randomNumber);
-
-var userNumberArray=[];
 
 var startCountdown = 30;
 var countdown = setInterval(function(){
+    var userNumberArray=[];
     if (startCountdown!=0){
         startCountdown --; 
     } else {
         clearInterval(countdown);
         for (var i = 0; i < 5; i++){
-            var userNumber = parseInt(prompt("Plese insert the number you remember:"));
-            userNumberArray.push(userNumber);
-        }
+            var userNumber = parseInt(prompt("Please insert the numbers you remember:"));
+            if(userNumber == randomNumber[i]){
+                userNumberArray.push(userNumber);
+            }
+        }           
+        console.log(userNumberArray);
+        alert ("You have guessed " + userNumberArray.length + " numbers: " + userNumberArray);
     }
-    console.log(userNumberArray);
 }, 1000)
