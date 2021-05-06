@@ -10,28 +10,47 @@
 
 var randomNumber =[];
 
-for ( var i = 0; i < 5; i++) {
-    var getRandomNumber = Math.floor(Math.random() * (100 - 1 +1)) + 1;
-    randomNumber.push(getRandomNumber);
-}
+while (randomNumber.length < 5) {
 
+    var getRandomNumber = Math.floor(Math.random() * (100)) + 1;
+    if (!isInArray(getRandomNumber, randomNumber)){
+        randomNumber.push(getRandomNumber);
+    }
+
+}
 console.log(randomNumber);
 var numbersToMemorize = alert("Please remember the following numbers: " + randomNumber);
 
-var startCountdown = 30;
+var startCountdown = 10;
 var countdown = setInterval(function(){
-    var userNumberArray=[];
-    if (startCountdown!=0){
+    
+    var userNumberArray = [];
+    if (startCountdown!=-1) {
+        document.getElementById("countdown").innerHTML = startCountdown;
         startCountdown --; 
     } else {
         clearInterval(countdown);
+
         for (var i = 0; i < 5; i++){
             var userNumber = parseInt(prompt("Please insert the numbers you remember:"));
-            if(userNumber == randomNumber[i]){
+            console.log(userNumber);
+            if (isInArray(userNumber, randomNumber)){
                 userNumberArray.push(userNumber);
             }
-        }           
+        }     
         console.log(userNumberArray);
         alert ("You have guessed " + userNumberArray.length + " numbers: " + userNumberArray);
     }
-}, 1000)
+    
+}, 1000);
+
+//----FUNCTION----///
+function isInArray (element, array) {
+
+    for(var i = 0; i<array.length; i++)
+    if (element == array[i]){
+        return true;
+    }
+
+}
+
