@@ -1,0 +1,30 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#countdown{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(pink, black);
+
+}
+
+p {
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    padding: 20px;
+    font-size: 300px;
+    border: 1px solid pink;
+    border-radius: 50%;
+    background-color: pink;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
